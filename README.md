@@ -12,7 +12,7 @@ pass: shaan123
 
 Project Name : AURELIA
 
-🚀 Tech StackFramework: Next.jsStyling: [e.g., Tailwind CSS] Database: [e.g., MongoDB]Deployment: Vercel⚙️
+🚀 Tech StackFramework: Next.js Styling: [e.g., Tailwind CSS] Database: [e.g., MongoDB]Deployment: Vercel⚙️
 
 Environment VariablesThis project requires specific environment variables to function correctly. Ensure these are set in your local .env.local file and in your Vercel Dashboard settings.VariableDescriptionNEXT_PUBLIC_API_URLThe URL of your backend API (e.g., 
 )MONGODB_URIYour database connection stringNote: Do not hardcode these values directly into your components. Always use process.env.NEXT_PUBLIC_API_URL to ensure the application fetches data from the correct environment.
