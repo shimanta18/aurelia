@@ -39,7 +39,7 @@ export default function ExploreCollection(): React.JSX.Element {
         setLoading(true);
         setError(null);
 
-       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties`);
+       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL }/properties`);
         const textData = await res.text();
 
         if (!res.ok) {

@@ -21,7 +21,8 @@ export default function FeaturedResidences() {
     setLoading(true);
     setErrorMessage(null);
 
-   fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties?limit=4`)
+  // Ensure you are using process.env.NEXT_PUBLIC_API_URL
+fetch(`${process.env.NEXT_PUBLIC_API_URL}/properties?limit=4`)
       .then(async (res) => {
         const textData = await res.text();
 

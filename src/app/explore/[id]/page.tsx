@@ -32,7 +32,7 @@ export default function PropertyDetailsPage(): React.JSX.Element {
     if (!id) return;
 
     setLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL }/properties/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch the property details.');
         return res.json();

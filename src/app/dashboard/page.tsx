@@ -56,7 +56,7 @@ export default function DashboardOverview(): React.JSX.Element {
         const fetchDashboardPayload = async () => {
             const token = localStorage.getItem('token');
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/dashboard/overview`, {
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL }/dashboard/overview`, {
                     headers: { 
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json' 

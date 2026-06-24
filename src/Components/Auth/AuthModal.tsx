@@ -51,7 +51,7 @@ export default function AuthModal(): React.JSX.Element {
       console.log("Firebase verified. Syncing with Express database...");
       const endpoint = activeTab === 'signin' ? 'login' : 'register';
       
-      const backendResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/${endpoint}`, {
+      const backendResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL }/auth/${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -100,7 +100,7 @@ export default function AuthModal(): React.JSX.Element {
       await signInWithEmailAndPassword(auth, 'demo@maisonaurelia.ae', 'Demo!2026');
       
       
-      const backendResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/login`, {
+      const backendResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL }/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: 'demo@maisonaurelia.ae', password: 'Demo!2026' })

@@ -29,7 +29,7 @@ export default function ManageItemsPage(): React.JSX.Element {
     const loadPropertiesData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/items/my-items`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL }/items/my-items`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -116,7 +116,7 @@ export default function ManageItemsPage(): React.JSX.Element {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties/create`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL }/properties/create`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -172,7 +172,7 @@ export default function ManageItemsPage(): React.JSX.Element {
     if (!confirm('Are you sure you want to remove this estate listing record?')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL }/properties/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
