@@ -67,11 +67,11 @@ export default function AboutPage(): React.JSX.Element {
         </div>
       </section>
 
-      {/* SECTION 3: TEAM MATRIX CARDS (image_8b2da1.png) */}
+      {/*  TEAM MATRIX CARDS (image_8b2da1.png) */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* Card 1: Aurelia Sant */}
+          {/*  Aurelia Sant */}
           <div className="rounded-xl bg-[#FAF7F2] border border-[#ECE6DC] p-6 space-y-4 hover:shadow-sm transition-shadow duration-300 flex flex-col justify-between min-h-[220px]">
             <div className="space-y-1">
               <h3 className="font-serif text-2xl font-normal text-stone-900 tracking-tight">Aurelia Sant</h3>
@@ -84,7 +84,7 @@ export default function AboutPage(): React.JSX.Element {
             </p>
           </div>
 
-          {/* Card 2: Faisal Al Rashid */}
+          {/*  Faisal Al Rashid */}
           <div className="rounded-xl bg-[#FAF7F2] border border-[#ECE6DC] p-6 space-y-4 hover:shadow-sm transition-shadow duration-300 flex flex-col justify-between min-h-[220px]">
             <div className="space-y-1">
               <h3 className="font-serif text-2xl font-normal text-stone-900 tracking-tight">Faisal Al Rashid</h3>
@@ -97,7 +97,7 @@ export default function AboutPage(): React.JSX.Element {
             </p>
           </div>
 
-          {/* Card 3: Marta Vidal */}
+          {/*  Marta Vidal */}
           <div className="rounded-xl bg-[#FAF7F2] border border-[#ECE6DC] p-6 space-y-4 hover:shadow-sm transition-shadow duration-300 flex flex-col justify-between min-h-[220px]">
             <div className="space-y-1">
               <h3 className="font-serif text-2xl font-normal text-stone-900 tracking-tight">Marta Vidal</h3>
