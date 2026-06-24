@@ -20,7 +20,7 @@ export default function CreateItemPage(): React.JSX.Element {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/items/create', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/items/create`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

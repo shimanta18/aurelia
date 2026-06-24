@@ -29,7 +29,7 @@ export default function ManageItemsPage(): React.JSX.Element {
     const loadPropertiesData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/items/my-items', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/items/my-items`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -40,7 +40,7 @@ export default function ManageItemsPage(): React.JSX.Element {
         if (res.ok) {
           const json = await res.json();
           
-          // 1. SAFELY extract the array no matter how the backend wraps it
+          //  SAFELY extract the array no matter how the backend wraps it
           let rawItems = [];
           if (json && Array.isArray(json.data)) {
             rawItems = json.data;
@@ -50,7 +50,7 @@ export default function ManageItemsPage(): React.JSX.Element {
             rawItems = json;
           }
 
-          // 2. Map the array elements safely
+          //  Map the array elements safely
           const mappedItems: PropertyRecord[] = rawItems.map((item: any) => ({
             id: item._id || item.id,
             title: item.title || 'Untitled Property',
@@ -116,7 +116,7 @@ export default function ManageItemsPage(): React.JSX.Element {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/properties/create', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties/create`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -172,7 +172,7 @@ export default function ManageItemsPage(): React.JSX.Element {
     if (!confirm('Are you sure you want to remove this estate listing record?')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/properties/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

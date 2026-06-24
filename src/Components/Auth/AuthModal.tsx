@@ -34,7 +34,7 @@ export default function AuthModal(): React.JSX.Element {
     try {
       console.log(`Attempting Firebase ${activeTab} with:`, email);
       
-      // 1. Authenticate with Firebase first
+      //  Authenticate with Firebase first
       let firebaseUser;
       if (activeTab === 'signin') {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -47,11 +47,11 @@ export default function AuthModal(): React.JSX.Element {
         }
       }
 
-      // 2. 🔥 CONNECT TO YOUR NODE.JS EXPRESS BACKEND SERVER
+      //  CONNECT TO YOUR NODE.JS EXPRESS BACKEND SERVER
       console.log("Firebase verified. Syncing with Express database...");
       const endpoint = activeTab === 'signin' ? 'login' : 'register';
       
-      const backendResponse = await fetch(`http://localhost:5000/api/auth/${endpoint}`, {
+      const backendResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ export default function AuthModal(): React.JSX.Element {
         throw new Error(backendData.message || 'Failed to sync account with main database.');
       }
 
-      // 3. 💾 SAVE THE TRUE USER OBJECT (AND REAL ROLE) TO LOCALSTORAGE
+      
       localStorage.setItem('token', backendData.token);
       localStorage.setItem('user', JSON.stringify(backendData.user)); // Contains role: 'user'
 
@@ -99,8 +99,8 @@ export default function AuthModal(): React.JSX.Element {
     try {
       await signInWithEmailAndPassword(auth, 'demo@maisonaurelia.ae', 'Demo!2026');
       
-      // Hit your login endpoint to load up true demo statistics
-      const backendResponse = await fetch('http://localhost:5000/api/auth/login', {
+      
+      const backendResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: 'demo@maisonaurelia.ae', password: 'Demo!2026' })

@@ -85,7 +85,7 @@ export default function ProfilePage(): React.JSX.Element {
       formData.append('phone', profile.phone);
       if (imageFile) formData.append('avatar', imageFile);
 
-      const res = await fetch('http://localhost:5000/api/auth/profile/update', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/profile/update`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` },
         body: formData
@@ -119,7 +119,7 @@ export default function ProfilePage(): React.JSX.Element {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/auth/profile/password', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/profile/password`, {
         method: 'PUT',
         headers: { 
           'Authorization': `Bearer ${token}`,

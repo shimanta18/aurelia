@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-// 1. Import Next.js Link component for client-side routing
+
 import Link from 'next/link';
 
 interface Property {
@@ -39,7 +39,7 @@ export default function ExploreCollection(): React.JSX.Element {
         setLoading(true);
         setError(null);
 
-        const res = await fetch('http://localhost:5000/api/properties');
+       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties`);
         const textData = await res.text();
 
         if (!res.ok) {

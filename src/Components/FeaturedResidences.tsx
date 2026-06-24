@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-// 1. Import Next.js Link component for client-side routing
+//  Import Next.js Link component for client-side routing
 import Link from 'next/link';
 
 interface Property {
@@ -21,7 +21,7 @@ export default function FeaturedResidences() {
     setLoading(true);
     setErrorMessage(null);
 
-    fetch('http://localhost:5000/api/properties?limit=4')
+   fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/properties?limit=4`)
       .then(async (res) => {
         const textData = await res.text();
 

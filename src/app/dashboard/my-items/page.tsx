@@ -7,9 +7,9 @@ interface Item {
   _id: string;
   title: string;
   price: number;
-  priceDisplay?: string; // Aligned with backend data model formatting
+  priceDisplay?: string; 
   location: string;
-  status: string;        // Made flexible to accommodate backend mutations ('FOR SALE', 'RENT', 'SOLD')
+  status: string;        
   imageUrl?: string;
 }
 
@@ -32,7 +32,7 @@ export default function MyItemsPage(): React.JSX.Element {
     const fetchMyItems = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/items/my-items', {
+       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/items/my-items`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -72,7 +72,7 @@ export default function MyItemsPage(): React.JSX.Element {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/items/create', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/items/create`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
